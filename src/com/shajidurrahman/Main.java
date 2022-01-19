@@ -11,6 +11,21 @@ public class Main {
         UserOpinion();
     }
 
+    private static void playAgain() {
+        System.out.println("\n");
+        System.out.println("Play again ? (yes or no)");
+        Scanner sc = new Scanner(System.in);
+        String opinion = sc.next();
+        if (Objects.equals(opinion, "yes")){
+            gameStarted();
+        } else if (Objects.equals(opinion, "no")){
+            gameExit();
+        } else {
+            System.out.println("Type yes or no ");
+            playAgain();
+        }
+    }
+
     private static void UserOpinion() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Your opinion: ");
@@ -25,9 +40,11 @@ public class Main {
     }
 
     public static void gameWon(int a){
+        System.out.println("##############################");
         System.out.println("You have won the game :) !!!");
         System.out.println("Your trying time " + a);
-        System.exit(0);
+        System.out.println("##############################");
+        playAgain();
     }
 
     private static void gameExit() {
